@@ -1,0 +1,5 @@
+git init
+.idea
+vendor
+node_modules
+
