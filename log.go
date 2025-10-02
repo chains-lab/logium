@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/chains-lab/svc-errors/ape"
+	"github.com/chains-lab/ape"
 	"github.com/sirupsen/logrus"
 )
 
@@ -45,7 +45,7 @@ type logger struct {
 func (l *logger) WithError(err error) *logrus.Entry {
 	var ae *ape.Error
 	if errors.As(err, &ae) {
-		return l.Entry.WithError(ae.Unwrap())
+		return l.Entry.WithError(ae)
 	}
 	return l.Entry.WithError(err)
 }
